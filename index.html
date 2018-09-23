@@ -99,7 +99,7 @@
     root: '/',
     scheme: 'Muse',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -305,7 +305,12 @@
         
           
           ###bootstrap    简洁、直观、强悍的前端开发框架，让web开发更迅速、简单    中文网 ： http://www.bootcss.com/    英文网  :  http://getbootstrap.com/
-###容器    流体布局容器        容器的width为auto
+###容器    流体布局容器        容器的width为auto，只是两边加了15px的padding。
+固定布局
+    容器的width会随设备分辨率的不同而生产变化
+        分辨率阈值
+            w &gt;=1200             容器的width为1170   左右padding为15 （注意是borderBox）
+  
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -437,7 +442,20 @@ Number —– 任意数值 ——– typeof
 String —– 任意字符串 —— typeof
 Boolean —- true/false —– typeof
 undefined — undefined —– typeof/===
-null ——– nu
+null ——– null ———- ===
+
+
+对象(引用)类型
+Object —– typeof/instanceof
+Array —— instanceof
+Function —- typeof
+
+
+
+数据,变量, 内存的理解
+什么是数据?
+在内存中可读的, 可传递的保存了特定信息的’东东’
+一切皆数据, 函数也是
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -567,7 +585,8 @@ null ——– nu
 用Hexo + github搭建自己的博客 — 再也不用羡慕别人了！上面这个是转载的链接，有别人建站的过程，下面是==填坑。。。。==
 
 
-注意事项1最近的github上没有“launch Automatic page generator”,需要在integrations&amp;services
+注意事项1最近的github上没有“launch Automatic page generator”,需要在integrations&amp;services中添加“GitHub Auto-Deployment”代替。最后感谢博主~
+_config.yml尾部代码：尾部有坑12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -698,7 +717,9 @@ null ——– nu
 
 为什么要学习jQuery？【01-让div显示与设置内容.html】
 使用javascript开发过程中，有许多的缺点：
-123451. 查找元素的方法太少，麻烦。2. 遍
+123451. 查找元素的方法太少，麻烦。2. 遍历伪数组很麻烦，通常要嵌套一大堆的for循环。3. 有兼容性问题。4. 想要实现简单的动画效果，也很麻烦5. 代码冗余。
+jQuery初体验【02-让div显示与设置内容.html】
+12345678910$(document).ready(function () &#123;    $("#btn
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -820,6 +841,13 @@ null ——– nu
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -866,11 +894,6 @@ null ——– nu
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
